@@ -1,0 +1,1 @@
+print("Betreed het betoverende rijk van Eldoria, waar de nevels van mysterie en de echo's van onontdekte geheimen in de lucht hangen.")
