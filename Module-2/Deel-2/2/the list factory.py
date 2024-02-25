@@ -66,14 +66,21 @@
 # A.append(leters)
 # print(A)
 
+# aantal_lijsten = []
+# aantal_lijstjes = int(input("Hoeveel lijstjes? "))
+# lijsten = []
+# a = []
+# for lijsten in range (1,aantal_lijstjes + 1) :
+#     inhoud_lijst = int(input(f'hoeveel in lijst {lijsten}? '))
+#     [a * lijsten ]
+#     lijsten .append (aantal_lijsten)
+#     # for aantal_lijsten in lijsten:
 
-aantal_lijstjes = int(input("Hoeveel lijstjes? "))
-for lijsten in range (aantal_lijstjes) :
-    
-    inhoud_lijst = int(input(f'hoeveel in lijst {lijsten + 1}? '))
 
 
-print(f'lengte lijstje {inhoud_lijst}')
+
+
+# print(f'{aantal_lijsten}')
 
 # A = []
 # aantal = 4
@@ -85,19 +92,58 @@ print(f'lengte lijstje {inhoud_lijst}')
 # print(A)
     
 
+# def first_liste(A_lijst,B_lijsten):
+#     return A_lijst.append(B_lijsten)
+
+
+# A_lijst = int(input('hoeveel lijsten wilt u hebben? '))
+
+# for i in range(1, + 1):
+#     inner_lijst = int(input(f'hoeveel wilt u hebben in list {i}'))
+# print()
+
+
+# for B_lijst in range (1, A_lijst + 1):
+#     C_lijst = int(input(f'hoeveel wilt u hebben in lijste {B_lijst}? '))
+# klein_lijst = [C_lijst]
+# lijst.append(klein_lijst)
+# print(klein_lijst)
 
 
 
+# input_int = int(input("Voer een integer in: ")
+
+# # Maak een lijst met één element, de ingevoerde integer
+# lijst = [input_int]
+
+# # Print de resulterende lijst
+# print("De ingevoerde lijst is:", lijst)
 
 
+lijst = []
+aantal_listen = int(input('hoeveel lijsten wilt u hebben? '))
+# lijst.append(aantal_listen)
+for list_nummer in range (1, aantal_listen + 1):
+    inner_lijst = int(input(f'hoeveel wilt u hebben in list nummer {list_nummer}?'))
+    steps = [ i * list_nummer for i in range(1, inner_lijst + 1)]
+    lijst.append(steps)
+print( lijst)
 
 
+# # Vraag het aantal lijsten
+# aantal_lijsten = int(input("Hoeveel lijstjes? "))
 
+# # Lijst van lijsten
+# lijsten = []
 
+# # Loop door het aantal lijsten
+# for lijst_nummer in range(1, aantal_lijsten + 1):
+#     # Vraag het aantal elementen in de huidige lijst
+#     aantal_elementen = int(input(f"Hoeveel in lijst {lijst_nummer}? "))
+    
+#     # Maak een lijst met getallen van 1 tot en met het aantal elementen vermenigvuldigd met het lijstnummer en voeg deze toe aan de lijst van lijsten
+#     sublist = [j * lijst_nummer for j in range(1, aantal_elementen + 1)]
+#     lijsten.append(sublist)
 
-
-
-
-
-
-
+# # Print de resulterende lijsten
+# print("De ingevoerde lijsten zijn:", lijsten)
