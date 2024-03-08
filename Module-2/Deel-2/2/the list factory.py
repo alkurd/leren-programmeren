@@ -120,14 +120,17 @@
 # print("De ingevoerde lijst is:", lijst)
 
 
-lijst = []
-aantal_listen = int(input('hoeveel lijsten wilt u hebben? '))
-# lijst.append(aantal_listen)
-for list_nummer in range (1, aantal_listen + 1):
-    inner_lijst = int(input(f'hoeveel wilt u hebben in list nummer {list_nummer}?'))
-    steps = [ i * list_nummer for i in range(1, inner_lijst + 1)]
-    lijst.append(steps)
-print( lijst)
+# lijst = []
+# aantal_listen = int(input('hoeveel lijsten wilt u hebben? '))
+# # lijst.append(aantal_listen)
+# for list_nummer in range (1, aantal_listen + 1):
+#     inner_lijst = int(input(f'hoeveel wilt u hebben in list nummer {list_nummer}?'))
+#     steps = [ i * list_nummer for i in range(1, inner_lijst + 1)]
+#     lijst.append(steps)
+# print( lijst)
+
+
+
 
 
 # # Vraag het aantal lijsten
@@ -147,3 +150,22 @@ print( lijst)
 
 # # Print de resulterende lijsten
 # print("De ingevoerde lijsten zijn:", lijsten)
+
+
+
+lijst = []
+
+aantal_listen = int(input('hoeveel lijsten wilt u hebben? '))
+for list_nummer in range (1, aantal_listen + 1):
+    inner_lijst = int(input(f'hoeveel wilt u hebben in list nummer {list_nummer}?'))
+    steps = [ i * list_nummer for i in range(1, inner_lijst + 1)]
+
+    # step =[]
+    # for i in range (1, inner_lijst + 1):
+    #     step.append(i * list_nummer)
+        # print(i)
+    # print(step)
+
+    lijst.append(steps)
+    # print(steps)
+print( lijst)
