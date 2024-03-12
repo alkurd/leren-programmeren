@@ -38,34 +38,14 @@ Number = 50
 totaal = 50 
 som =  '50'
 lijn = 0 
-allles = []
-
-
+# allles = []
 while totaal < 1000:
     lijn += 1
     Number += 1
     totaal += Number
     som += f' + {Number}'
-
     print(f'{lijn}. {som} = {totaal}')
     # print(som)
     # volgende  = input('Do you want to continue? ')
     # if volgende == 'no':
-    #     break
-    
-# huidigGetal = 50
-# totaalSom = 50
-# lijnNummer = 0
-# somString = '50'
-
-# while huidigGetal <= 1000:
-#     lijnNummer += 1
-#     huidigGetal += 1
-#     totaalSom += huidigGetal
-#     somString += f' + {huidigGetal}'
-#     print(f'{lijnNummer}. {somString} = {totaalSom}')
-#     break
-    
-    # volgende = input('Do you want to continue? ')
-    # if volgende.lower() == 'no':
     #     break
