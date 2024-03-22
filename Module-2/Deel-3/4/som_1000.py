@@ -1,11 +1,11 @@
-totaal = 0
-current = 50
-optel = 1
-while totaal <= 1000:
-    totaal += current                
-    print(f'{optel}. {'+'.join([str(x) for x in range(50 ,  current + 1)])} = {totaal}')
-    current += 1
-    optel += 1
+# totaal = 0
+# current = 50
+# optel = 1
+# while totaal <= 1000:
+#     totaal += current                
+#     print(f'{optel}. {'+'.join([str(x) for x in range(50 ,  current + 1)])} = {totaal}')
+#     current += 1
+#     optel += 1
 ###########################################################################################################
 #_________________________________________________________________________________________________________#
 # def points(matches):
@@ -34,17 +34,23 @@ while totaal <= 1000:
 #     if volgende == 'no':
 #         break
     # break
+
+
 Number = 50
-totaal = 50 
-som =  '50'
+totaal = Number 
+som = f'{Number}'
 lijn = 0 
-# allles = [] 
 while totaal < 1000:
     lijn += 1
     Number += 1
     totaal += Number
     som += f' + {Number}'
     print(f'{lijn}. {som} = {totaal}')
+
+
+
+# allles = [] 
+
     # print(som)
     # volgende  = input('Do you want to continue? ')
     # if volgende == 'no':

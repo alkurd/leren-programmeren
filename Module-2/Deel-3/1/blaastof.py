@@ -12,6 +12,9 @@ while timer > 0:
             if timer == 0:
                 print('!!!!!!!!!!blastoff!!!!!!!!!!')
                 break
+
+
+
 # from time import sleep
 
 # timer  = 30

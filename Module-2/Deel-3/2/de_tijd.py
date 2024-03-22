@@ -4,7 +4,7 @@ while uur <= 24:
         print(f"{uur} AM")
     elif uur == 12:
         print(f"{uur} PM")
-    elif uur <= 24:
+    elif uur <= 23:
         print(f"{uur-12} PM")
     else:
         print(f"{uur-12} AM")

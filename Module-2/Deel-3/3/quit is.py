@@ -4,4 +4,4 @@ while True:
     teller += 1
     if vraag == 'quit':
         break
-print('De vraag is', teller, 'keer gesteld.')
+print('De vraag is', teller , 'keer gesteld.')

@@ -14,7 +14,7 @@ coinsReturned = {}
 while change > 0 and len(coinValues) > 0: #
 
   coinValue = coinValues.pop(0) #
-  nrCoins = change // coinValue #
+  nrCoins = change // coinValue #nrCoins is changed 
 
   if nrCoins > 0: #
     print('return maximal ', nrCoins, ' coins of ', coinValue, ' cents!' ) #
