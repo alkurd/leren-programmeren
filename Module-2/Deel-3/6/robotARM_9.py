@@ -9,9 +9,9 @@ for stapel in range (1, 5):
         for a in range(4):
             robotArm.moveLeft()
         if stapel != blokje + 1:
-            # for a in range(5):
             robotArm.moveLeft()
 robotArm.wait()
+            # for a in range(5):
         # if stapel == (blokje + 1)else 5 ):
 
 # hoogte = 0
