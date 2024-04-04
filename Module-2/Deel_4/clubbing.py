@@ -12,8 +12,10 @@ VIP_LIST = ('jeroen', 'jouke', 'rudi','yousef')
 print('je loopt een clup binnen')
 print('je aan de voor duur word je gestopt door security')
 age = int(input('hij vraagt hoe oud ben je?\n'))
+verschil = abs (18 - age)
 if age < 18 :
     print('mindere jaregen mogen de clup niet binnen komen')
+    print(f'je mag in {verschil} jaren proberen')
     exit()
 else:
     name = input('wat is je naam?\n')
@@ -42,11 +44,13 @@ else:
             else:
                 print(f'altublief je {drinks}, de prijst is {PRIJS_COLA} euro ')
         elif drinks == 'bier':
-            if age >= 21 and  over_21_and_VIP['BLAUWE_BANDJE']:
+            if  over_21_and_VIP['BLAUWE_BANDJE'] or over_21_and_VIP ['ROODE_BANDJE'] == True:
                 print (complimenten)
-            elif age >= 21 and over_21_and_VIP['STAMPELL']:
+            elif over_21_and_VIP['STAMPELL'] == True:
                 print(f'altublief je {drinks}, de prijst is {PRIJS_BIER} euro ')
             else:
+                verschil = abs (21 - age)
+                print(f'sorry ja je mag in {verschil} jaren proberen')
                 print('sorry mag geen alcoholn bestellen onder de 21')
                 exit()
         elif drinks == 'champagne':
