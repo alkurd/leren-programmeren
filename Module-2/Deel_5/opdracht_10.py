@@ -20,6 +20,6 @@ gewicht =sorted (fruitmand,  key= lambda x: x['weight'], reverse = True) # heb m
 # lambda x: x['weight']
 
 
-
+print("================================")
 for fruit in gewicht:
     print(f'{fruit['name']} : {fruit['weight']}')

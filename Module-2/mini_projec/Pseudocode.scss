@@ -1,0 +1,40 @@
+// namen = lege lijst
+// unike namen  = ('rudi', 'yousef','slemmer', 'youke',)
+// herhaal tot de lengte van namen groter is dan of gelijk is aan 3:
+//     vraag de gebruiker om een naam en sla het op in de variabele 'naam'
+//     als de 'naam' niet in 'namen' voorkomt:
+//         voeg de 'naam' toe aan de lijst 'namen'
+//     anders:
+//         geef een bericht dat de 'naam' al in de lijst zit
+
+// vraag de gebruiker of ze meer namen willen toevoegen en sla het op in de variabele 'doorgaan'
+// als 'doorgaan' in ['yes', 'ja', 'j', 'oke']:
+//     vraag de gebruiker om het aantal namen dat ze willen toevoegen en sla het op in de variabele 'doorgaan'
+//     voor elke keer dat de lus wordt uitgevoerd voor het aantal 'doorgaan':
+//         vraag de gebruiker om een naam en sla het op in de variabele 'naam'
+//         als de 'naam' niet in 'namen' voorkomt:
+//             voeg de 'naam' toe aan de lijst 'namen'
+//         anders:
+//             geef een bericht dat de 'naam' al in de lijst zit
+// anders:
+
+import modeule random
+
+maak een lege 
+zo lagn de lengte van van de list is kleiner dan 3:
+    vraag de gebruiker om een naam en sla het op in de variabele 'naam'
+    als de 'naam' niet in 'namen' voorkomt:
+    voeg de 'naam' toe aan de lege list'
+    anders:
+    geef een bericht dat de 'naam' al in de lege list zit
+
+vraag de gebruiker als die wil doorgaan
+als de gbruiker wil doorgaan
+vraag de gebruiker hoeveel naamen wil die toevoegen
+herhaal vraag zo veelkeer als de gebruiker zegt:
+    vraag de gebruiker om een naam en sla het op in de variabele 'naam'
+    als de 'naam' niet in 'namen' voorkomt:
+    voeg de 'naam' toe aan de lege list'
+    anders:
+    geef een bericht dat de 'naam' al in de lege list zit
+anders:
