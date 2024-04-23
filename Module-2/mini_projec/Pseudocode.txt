@@ -1,3 +1,4 @@
+
 Initialiseer namen als een lege lijst
 
 Herhaal voor altijd:
@@ -17,4 +18,5 @@ Schud de lijst 'nuw_list' willekeurig
 Voor elke index i in het bereik van de lengte van de lijst 'namen':
     Zolang de naam in de lijst 'nuw_list' op index i gelijk is aan de naam in de lijst 'namen' op index i:
         Schud de lijst 'nuw_list' opnieuw
-    Druk de naam uit de lijst 'namen' op index i en de naam uit de lijst 'nuw_list' op index i af
+    als de naam in de lijst 'nuw_list' op index i niet gelijk is aan de naam in de lijst 'namen' op index i:
+        Druk de naam uit de lijst 'namen' op index i en de naam uit de lijst 'nuw_list' op index i af
