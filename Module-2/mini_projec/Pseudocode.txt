@@ -3,7 +3,7 @@ Initialiseer namen als een lege lijst
 
 Herhaal voor altijd:
     Vraag om een naam en sla deze op in de variabele 'naam'
-    Als de 'naam' al in de lijst 'namen' voorkomt:
+    Als de 'naam' al in de lijst 'namen' :
         Geef een bericht dat de naam al in de lijst zit
     Anders:
         Voeg de 'naam' toe aan de lijst 'namen'
@@ -12,8 +12,52 @@ Herhaal voor altijd:
         Als het antwoord 'L' is, breek de lus af
 
 Maak een kopie van de lijst 'namen' en sla deze op in de variabele 'nuw_list'
-
 Schud de lijst 'nuw_list' willekeurig
+
+
+herhaal voor altijd:
+    nieuwe variabele = Fales
+    Voor elke index i in het bereik van de lengte van de lijst 'namen':
+        als de naam in de lijst 'nuw_list' op index i gelijk is aan de naam in de lijst 'namen' op index i:
+            nieuwe variabele = True
+            Schud de lijst 'nuw_list' willekeurig
+            break de loep
+    als niet nieuwe variabele:
+        break de loep
+
+Voor elke index i in het bereik van de lengte van de lijst 'namen':
+    print(index  van namen  trek index van nuw list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Voor elke index i in het bereik van de lengte van de lijst 'namen':
     Zolang de naam in de lijst 'nuw_list' op index i gelijk is aan de naam in de lijst 'namen' op index i:
