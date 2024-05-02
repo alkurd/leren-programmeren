@@ -1,49 +1,46 @@
 import random
-namen = []
+
+input_namen = []
 
 while True:
     naam = input('Geef een naam: ')
-    if naam in namen:
+    if naam in input_namen:
         print(f'De naam {naam} is al in de lijst!')
     else:
-        namen.append(naam)
-    if len(namen) >= 3:
-        
-        naam = input("Wil je nog een naam invoeren (I) of lootjes trekken (L)? ").upper()
-        if naam == 'L':
+        input_namen.append(naam)
+    if len(input_namen) >= 3:
+        antwoord = input("Wil je nog een naam invoeren (I) of lootjes trekken (L)? ").upper()
+        if antwoord == 'L':
             break
 
-nuw_list = namen.copy()
-random.shuffle(nuw_list)
+lootjes = input_namen.copy()
+random.shuffle(lootjes)
 
-dict_list = {} 
+lootjes_koppeling = {} 
 
 while True:
-    gevonden =  False
-    for i in range (len(namen)):
-        if nuw_list[i] == namen[i]:
+    gevonden = False
+    for i in range(len(input_namen)):
+        if lootjes[i] == input_namen[i]:
             gevonden = True
-            random.shuffle(nuw_list)
-
+            random.shuffle(lootjes)
             break
     if not gevonden:
-        for i in range (len(namen)):
-            dict_list[namen[i]] = nuw_list[i]
+        for i in range(len(input_namen)):
+            lootjes_koppeling[input_namen[i]] = lootjes[i]
         break
 
 while True:
-    naam_opvraag =  input('vraag een naam op ')
-    if naam_opvraag not in dict_list:
-        print(f'{naam_opvraag} was niet toe gevonden')
-    elif naam_opvraag  in dict_list:
-        print(f'{naam_opvraag} trekt {dict_list[naam_opvraag]}')
+    naam_opvraag = input('Vraag een naam op: ').lower()
+    if naam_opvraag in lootjes_koppeling:
+        print(f'{naam_opvraag} trekt {lootjes_koppeling[naam_opvraag]}')
+    else:
+        print(f'{naam_opvraag} was niet toegevoegd')
     if naam_opvraag == 'q':
         break
 
-# if naam_opvraag in dict_list:
-#         print(f'{naam_opvraag} trekt {dict_list[naam_opvraag]}')
-#     else:
-#         print(f'{naam_opvraag} was niet toe gevonden')
+
+
     
 
 # for i in range(len(namen )):
