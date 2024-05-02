@@ -9,8 +9,8 @@ while True:
     else:
         input_namen.append(naam)
     if len(input_namen) >= 3:
-        antwoord = input("Wil je nog een naam invoeren (I) of lootjes trekken (L)? ").upper()
-        if antwoord == 'L':
+        antwoord = input("Wil je nog een naam invoeren (I) of lootjes trekken (l)? ").lower()
+        if antwoord == 'l':
             break
 
 lootjes = input_namen.copy()
