@@ -8,7 +8,7 @@ while True:
         print(f'De naam {naam} is al in de lijst!')
     else:
         input_namen.append(naam)
-    if len(input_namen) >= 3:
+    if len(input_namen) >= 4:
         antwoord = input("Wil je nog een naam invoeren (I) of lootjes trekken (l)? ").lower()
         if antwoord == 'l':
             break
