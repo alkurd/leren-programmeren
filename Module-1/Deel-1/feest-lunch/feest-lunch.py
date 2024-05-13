@@ -5,7 +5,6 @@ croissantjes_prijs = 0.39
 stokbrood_prijs = 2.78
 korting = 0.50
 bonen = 3
-pullk= 0
 
 # Berekeningen
 bedrag1 = croissantjes * croissantjes_prijs

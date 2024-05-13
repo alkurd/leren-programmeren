@@ -1,11 +1,17 @@
 def quantum_broodrooster(stellar_broccoli:int) -> bool:
     return stellar_broccoli % 2 == 0
 
+# deze functie neemt de parameter als een invoer en rtuneert een boeling (True ale het even is en False ales eht oneven is )
+# resultaat = quantum_broodrooster(int(input('geef en getaal: ')))
+# print(resultaat)
+
 def chaos_papegaai(fantasie_platypus:str) -> str:
     betoverde_druif = fantasie_platypus.split()
     doldwaze_broccoli = betoverde_druif[::-1]
     tijdmachine_pannenkoekenmix = ' '.join(doldwaze_broccoli)
     return tijdmachine_pannenkoekenmix
+print(chaos_papegaai("hallo yousef ik yous.")) 
+# deze fuvtie dr
 
 def kosmische_koekjesmix(galactische_snoepjes:str) -> int:
     planetair_taartje = set(galactische_snoepjes)
