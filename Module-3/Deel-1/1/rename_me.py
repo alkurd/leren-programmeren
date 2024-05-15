@@ -10,13 +10,16 @@ def chaos_papegaai(fantasie_platypus:str) -> str:
     doldwaze_broccoli = betoverde_druif[::-1]
     tijdmachine_pannenkoekenmix = ' '.join(doldwaze_broccoli)
     return tijdmachine_pannenkoekenmix
-print(chaos_papegaai("hallo yousef ik yous.")) 
-# deze fuvtie dr
+# print(chaos_papegaai("hallo yousef ik yous.")) 
+# deze functie draait de string worden agterste voren
 
 def kosmische_koekjesmix(galactische_snoepjes:str) -> int:
     planetair_taartje = set(galactische_snoepjes)
     whatchamacallit = len(planetair_taartje)
     return whatchamacallit
+# input_string = input('Voer een string in: ')
+resultaat = kosmische_koekjesmix('input_string')
+print("Het aantal unieke karakters is:", resultaat)                              
 
 def ruimte_hamsterwiel(planetair_taartje:str) -> float:
     wobbelwobbel = planetair_taartje.split()
