@@ -1,17 +1,21 @@
 import random
 
 input_namen = []
-
+count = 0
 while True:
     naam = input('Geef een naam: ')
     if naam in input_namen:
         print(f'De naam {naam} is al in de lijst!')
     else:
-        input_namen.append(naam)
-    if len(input_namen) >= 4:
-        antwoord = input("Wil je nog een naam invoeren (I) of lootjes trekken (l)? ").lower()
-        if antwoord == 'l':
-            break
+        if naam.lower() != 'l':
+            input_namen.append(naam)
+
+        if len(input_namen) >= 3:
+            if count == 0:
+                count += 1
+                naam = input("Wil je nog een naam invoeren (I) of lootjes trekken (l)? ").lower()
+            if naam == 'l':
+                break
 
 lootjes = input_namen.copy()
 random.shuffle(lootjes)

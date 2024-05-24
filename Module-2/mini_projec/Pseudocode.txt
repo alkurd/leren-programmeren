@@ -1,6 +1,6 @@
 
 Initialiseer namen als een lege lijst
-
+Initialiseer conuter gelijk aan 0
 Herhaal voor altijd:
     Vraag om een naam en sla deze op in de variabele 'naam'
     Als de 'naam' al in de lijst 'namen' :
@@ -8,6 +8,8 @@ Herhaal voor altijd:
     Anders:
         Voeg de 'naam' toe aan de lijst 'namen'
     Als de lengte van de lijst 'namen' groter of gelijk is aan 3:
+    als counter is gelijk aan 0
+        coounter is + 1
         Vraag aan de gebruiker of ze nog een naam willen invoeren (I) of lootjes willen trekken (L)
         Als het antwoord 'L' is, breek de lus af
 
