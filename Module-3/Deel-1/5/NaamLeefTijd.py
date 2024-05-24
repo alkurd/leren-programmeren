@@ -1,12 +1,13 @@
 def NameAndAge():
     name = input('Wat is je naam: \n')
+    woonplaats = input('welke stad woon je: \n')
     age = int(input('Wat is je leeftijd: \n'))
-    library = {'name': name, 'age': age}
+    library = {'name': name,'woonplaats':woonplaats, 'age': age}
     return library
 
 
 
-def getMultipleNamesAndAges():
+def getMultipleNamesAndAges(): 
     lijst = []
     while True:
         naam = NameAndAge()
@@ -15,9 +16,9 @@ def getMultipleNamesAndAges():
         if NieuwNaam != 'ja':
             break
     return lijst
+if __name__ == '__main__':
 
+    people = getMultipleNamesAndAges()
 
-people = getMultipleNamesAndAges()
-
-for person in people:
-    print(f"{person['name']} is {person['age']} jaar")
+    for person in people:
+        print(f"{person['name']} die in {person['woonplaats']} woont is {person['age']} jaar")
