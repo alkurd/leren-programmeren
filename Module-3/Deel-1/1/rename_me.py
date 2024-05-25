@@ -16,14 +16,14 @@ def revers_woords(string:str) -> str:
 
 print(revers_woords("yousef alkurdi is 23 jaar oud.")) 
 
-def unique_chars_ounter(sentence:str) -> int:
+def unique_chars_counter(sentence:str) -> int:
     unique_chars = set(sentence)
     character_counter = len(unique_chars)
     return character_counter
 
 # Deze functie telt de aantal unieke karakters in de string en geeft de aantal terug (Uneke karakters zijn die letters die niet meer herhaald worden)       
                    
-resultaat = unique_chars_ounter('hello world')
+resultaat = unique_chars_counter('hello world')
 print("Het aantal unieke karakters is:", resultaat)  
 
 def gemiddelde_woordlengte(zin: str) -> float:

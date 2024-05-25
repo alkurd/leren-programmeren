@@ -112,6 +112,7 @@ def posities(getallen,controlegetal1):
 # Standaardafwijking berekenen
 
 
+
 def standaard_afwijking(getallen):
     gem = gemiddelde(getallen)
     aantal_elementen = aantal(getallen)

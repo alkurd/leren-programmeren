@@ -1,7 +1,8 @@
+#opdracht *5
 def NameAndAge():
     library = {}
     library['name'] = input('Wat is je naam: \n')
-    library['woonplaats'] = input('welke stad woon je: \n')
+    library['woonplaats'] = input('welke stad woon je: \n')# <-----opdracht *7
     library['age'] = int(input('Wat is je leeftijd: \n'))
     return library
 
@@ -12,8 +13,10 @@ def NameAndAge():
 #     library = {'name': name,'woonplaats':woonplaats, 'age': age}
 #     return library
 
+#eind opdracht *5
 
 
+#opdracht *6
 def getMultipleNamesAndAges(): 
     lijst = []
     while True:
@@ -29,3 +32,4 @@ if __name__ == '__main__':
 
     for person in people:
         print(f"{person['name']} die in {person['woonplaats']} woont is {person['age']} jaar")
+#eind opdracht *6
