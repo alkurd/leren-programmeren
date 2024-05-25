@@ -1,9 +1,16 @@
 def NameAndAge():
-    name = input('Wat is je naam: \n')
-    woonplaats = input('welke stad woon je: \n')
-    age = int(input('Wat is je leeftijd: \n'))
-    library = {'name': name,'woonplaats':woonplaats, 'age': age}
+    library = {}
+    library['name'] = input('Wat is je naam: \n')
+    library['woonplaats'] = input('welke stad woon je: \n')
+    library['age'] = int(input('Wat is je leeftijd: \n'))
     return library
+
+# def NameAndAge():
+#     name = input('Wat is je naam: \n')
+    # woonplaats = input('welke stad woon je: \n')
+    # age = int(input('Wat is je leeftijd: \n'))
+#     library = {'name': name,'woonplaats':woonplaats, 'age': age}
+#     return library
 
 
 
