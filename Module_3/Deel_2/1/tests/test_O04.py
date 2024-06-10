@@ -7,10 +7,10 @@ from data import JOURNEY_IN_DAYS
 
 #schrijf je test hier
 def calculate_travel_days(nights_one_way):
-    return nights_one_way * 2
+    return (nights_one_way * 2)
 
 expected = JOURNEY_IN_DAYS
-result = calculate_travel_days(5)
+result = calculate_travel_days(5)+1
 test('calculate_travel_days - test 1',expected, result)
 
 if __name__ == "__main__":
