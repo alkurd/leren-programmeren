@@ -1,6 +1,7 @@
 import time
 from termcolor import colored
-from data import JOURNEY_IN_DAYS, COST_FOOD_HUMAN_COPPER_PER_DAY, COST_FOOD_HORSE_COPPER_PER_DAY 
+from data import JOURNEY_IN_DAYS, COST_FOOD_HUMAN_COPPER_PER_DAY, COST_FOOD_HORSE_COPPER_PER_DAY, COST_TENT_GOLD_PER_WEEK, COST_HORSE_SILVER_PER_DAY
+from math import ceil
 
 ##################### O03 #####################
 
@@ -49,7 +50,6 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
     
 
 ##################### O06 #####################
-#functie 1
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
     nieuw_list = []
     for item in  list:
@@ -57,28 +57,44 @@ def getFromListByKeyIs(list:list, key:str, value:any) -> list:
             nieuw_list.append(item)
     return nieuw_list
 
-# functie 2
 def getAdventuringPeople(people:list) -> list:
     return getFromListByKeyIs(people, 'adventuring', True)
-    pass
+    
 
 def getShareWithFriends(friends:list) -> list:
     return getFromListByKeyIs(friends,'shareWith', True)
-    pass
+    
 
 def getAdventuringFriends(friends:list) -> list:
     return getFromListByKeyIs(friends, 'adventuring', True) and getFromListByKeyIs(friends,'shareWith', True)
-    pass
+    
 
 ##################### O07 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
+    neededHorses = people / 2
+    if people % 2 != 0:
+        neededHorses += 1
+    return int(neededHorses)
     pass
 
 def getNumberOfTentsNeeded(people:int) -> int:
+    neededTesnts = people / 3
+    if people % 3 != 0:
+        neededTesnts += 1
+    return int(neededTesnts)
     pass
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
+
+    week_dagen = 7
+    total_weken = ceil(JOURNEY_IN_DAYS / week_dagen) 
+
+    cost_horses = silver2gold(COST_HORSE_SILVER_PER_DAY) * horses * JOURNEY_IN_DAYS
+    cost_tents = COST_TENT_GOLD_PER_WEEK * tents * total_weken
+    total_rental_cost = cost_horses + cost_tents
+    return round(total_rental_cost,2)
+
     pass
 
 ##################### O08 #####################
