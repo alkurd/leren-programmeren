@@ -6,34 +6,26 @@ from math import ceil
 ##################### O03 #####################
 
 def copper2silver(amount:int) -> float:
-    siver = amount / 10
-    return siver
+    return amount * 0.1
     
 
 def silver2gold(amount:int) -> float:
-    gold = amount / 5
-    return gold
+    return amount * 0.2
 
 def copper2gold(amount:int) -> float:
-    silver = copper2silver(amount)
-    gold = silver2gold(silver)
-    return gold
+    copper = amount * 0.02
+    return copper
 
 def platinum2gold(amount:int) -> float:
-    platinum =   25*amount
-    return int(platinum) 
+    return amount * 25
 
 def getPersonCashInGold(personCash:dict) -> float:
-    copper = personCash.get('copper',0)
-    silver = personCash.get('silver',0)
-    gold = personCash.get('gold',0)
-    platinum = personCash.get('platinum',0)
-
-    gold_from_copper = copper2gold(copper)
-    gold_from_silver = silver2gold(silver)
-    gold_from_platinum = platinum2gold(platinum)
-    totaalGold = gold + gold_from_copper + gold_from_silver + gold_from_platinum
-    return totaalGold
+    amount = 0
+    amount += copper2gold(personCash.get('copper', 0))
+    amount += silver2gold(personCash.get('silver', 0))
+    amount += platinum2gold(personCash.get('platinum', 0))
+    amount += personCash.get('gold', 0)
+    return amount
     # return copper2gold(copper) + silver2gold(silver) + platinum2gold(platinum)
 
     
@@ -76,14 +68,14 @@ def getNumberOfHorsesNeeded(people:int) -> int:
     if people % 2 != 0:
         neededHorses += 1
     return int(neededHorses)
-    pass
+   
 
 def getNumberOfTentsNeeded(people:int) -> int:
     neededTesnts = people / 3
     if people % 3 != 0:
         neededTesnts += 1
     return int(neededTesnts)
-    pass
+    
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
 
@@ -95,15 +87,36 @@ def getTotalRentalCost(horses:int, tents:int) -> float:
     total_rental_cost = cost_horses + cost_tents
     return round(total_rental_cost,2)
 
-    pass
+   
 
 ##################### O08 #####################
 
-def getItemsAsText(items:list) -> str:
-    pass
+def getItemsAsText(items: list) -> str:
+    item_texts = [f"{item['amount']}{item['unit']} {item['name']}" for item in items]
+    if len(item_texts) == 1:
+        return item_texts[0]
+    else:
+        return ', '.join(item_texts[:-1]) + ' & ' + item_texts[-1]
+    
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    total_gold = 0
+    for item in items:
+        amount_1 = item['amount']
+        amount_2 = item['price']['amount']
+        total = float(amount_1) * amount_2
+        
+        if item['price']['type'] == 'copper':
+            total_gold += copper2gold(total)
+        elif item['price']['type'] == 'silver':
+            total_gold += silver2gold(total)
+        elif item['price']['type'] == 'platinum':
+            total_gold += platinum2gold(total)
+        elif item['price']['type'] == 'gold':
+            total_gold += total
+    
+    return total_gold
+    
 
 ##################### O09 #####################
 
