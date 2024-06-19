@@ -33,9 +33,9 @@ def getPersonCashInGold(personCash:dict) -> float:
 ##################### O05 #####################
 
 def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
-    total_days = JOURNEY_IN_DAYS
-    total_food_cost_humans = people * COST_FOOD_HUMAN_COPPER_PER_DAY * total_days
-    total_food_cost_horses = horses * COST_FOOD_HORSE_COPPER_PER_DAY * total_days
+    # total_days = JOURNEY_IN_DAYS
+    total_food_cost_humans = people * COST_FOOD_HUMAN_COPPER_PER_DAY * JOURNEY_IN_DAYS
+    total_food_cost_horses = horses * COST_FOOD_HORSE_COPPER_PER_DAY * JOURNEY_IN_DAYS
     total_food_cost = total_food_cost_humans + total_food_cost_horses
     total_food_cost_copper = round(copper2gold(total_food_cost),2)
     return total_food_cost_copper
@@ -64,23 +64,24 @@ def getAdventuringFriends(friends:list) -> list:
 ##################### O07 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
-    neededHorses = people / 2
-    if people % 2 != 0:
-        neededHorses += 1
-    return int(neededHorses)
+    return ceil(people / 2)
+    # if people % 2 != 0:
+    #     neededHorses += 1
+    # return int(neededHorses)
    
 
 def getNumberOfTentsNeeded(people:int) -> int:
     neededTesnts = people / 3
-    if people % 3 != 0:
-        neededTesnts += 1
-    return int(neededTesnts)
+    return ceil(neededTesnts)
+    # if people % 3 != 0:
+    #     neededTesnts += 1
+    # return int(neededTesnts)
     
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
 
-    week_dagen = 7
-    total_weken = ceil(JOURNEY_IN_DAYS / week_dagen) 
+    # week_dagen = 7
+    total_weken = ceil(JOURNEY_IN_DAYS / 7 )# 7 dagen van de wwek 
 
     cost_horses = silver2gold(COST_HORSE_SILVER_PER_DAY) * horses * JOURNEY_IN_DAYS
     cost_tents = COST_TENT_GOLD_PER_WEEK * tents * total_weken
@@ -92,24 +93,36 @@ def getTotalRentalCost(horses:int, tents:int) -> float:
 ##################### O08 #####################
 
 def getItemsAsText(items: list) -> str:
-    string = []
-    for item in items:
-        string.append(f"{item['amount']}{item['unit']} {item['name']}")
-    if len(string) == 1:
-        return string[0]
-    else:
-        return ', '.join(string[:-1]) +' & '+ string[-1]
-        
-        
+    # string_list = []
+    # for item in items:
+    #     string_list.append(f"{item['amount']}{item['unit']} {item['name']}")
+    # if len(string_list) == 1:
+    #     return string_list[0]
+    # else:
+    #     return ', '.join(string_list[:-1]) +' & '+ string_list[-1]
     
-    
+    string = ''
+    for index, item in enumerate(items):
+        string += f"{item['amount']}{item['unit']} {item['name']}"
+        if index < len(items) -2:
+            string += ', '
+        elif index < len(items) -1:
+            string += ' & '
+    return string
+
+            
 
 def getItemsValueInGold(items:list) -> float:
     total_gold = 0
     for item in items:
         amount_1 = item['amount']
         amount_2 = item['price']['amount']
-        total = float(amount_1) * amount_2
+        total = amount_1 * amount_2
+
+        # # amount = item['amount']
+        # price = item['price']
+        # totel = amount * price['amount']
+        # totel = item['amount'] * item['price']['amount']
         
         if item['price']['type'] == 'copper':
             total_gold += copper2gold(total)
@@ -120,7 +133,7 @@ def getItemsValueInGold(items:list) -> float:
         elif item['price']['type'] == 'gold':
             total_gold += total
     
-    return total_gold
+    return float(total_gold)
     
 
 ##################### O09 #####################
