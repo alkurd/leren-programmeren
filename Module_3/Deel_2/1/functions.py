@@ -113,7 +113,7 @@ def getItemsAsText(items: list) -> str:
             
 
 def getItemsValueInGold(items:list) -> float:
-    total_gold = 0
+    total_gold = 0.0
     for item in items:
         amount_1 = item['amount']
         amount_2 = item['price']['amount']
@@ -133,24 +133,44 @@ def getItemsValueInGold(items:list) -> float:
         elif item['price']['type'] == 'gold':
             total_gold += total
     
-    return float(total_gold)
+    return round(total_gold, 2)
     
 
 ##################### O09 #####################
 
 def getCashInGoldFromPeople(people:list) -> float:
-    pass
+    total_cash = 0.0
+    for person in people:
+        if 'cash' in person:
+            total_cash += getPersonCashInGold(person['cash'])
+    return round(total_cash,2)
 
 ##################### O10 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-    pass
+    list = []
+    for investor in investors:
+        if investor['profitReturn'] <= 10:
+            list.append(investor)
+    return list
 
 def getAdventuringInvestors(investors:list) -> list:
-    pass
+    list = []
+    for investor in getInterestingInvestors(investors):
+        if investor['adventuring'] == True:
+            list.append(investor)
+    return list
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
-    pass
+    adventuring_investors = getAdventuringInvestors(investors)
+    num_investors = len(adventuring_investors)
+    total_gear_cost = getItemsValueInGold(gear) * num_investors
+    total_food_cost = getJourneyFoodCostsInGold(num_investors, num_investors)
+    total_rental_cost = getTotalRentalCost(num_investors, num_investors)
+    total_costs = total_gear_cost + total_food_cost + total_rental_cost
+    return round(total_costs,2)
+
+    
 
 ##################### O11 #####################
 
