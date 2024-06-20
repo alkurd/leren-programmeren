@@ -186,9 +186,6 @@ def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
     total_cost = total_cost_per_night * nightsInInn
     return round(total_cost,2)
 
-    # total_cost = total_cost_per_night * getMaxAmountOfNightsInInn(nightsInInn)
-    pass
-
 ##################### O13 #####################
 
 def getInvestorsCuts(profitGold:float, investors:list) -> list:
