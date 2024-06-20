@@ -1,5 +1,6 @@
 import time
 from termcolor import colored
+import operator
 from data import JOURNEY_IN_DAYS, COST_FOOD_HUMAN_COPPER_PER_DAY, COST_FOOD_HORSE_COPPER_PER_DAY, COST_TENT_GOLD_PER_WEEK, COST_HORSE_SILVER_PER_DAY,COST_INN_HUMAN_SILVER_PER_NIGHT, COST_INN_HORSE_COPPER_PER_NIGHT
 
 from math import ceil
@@ -43,12 +44,19 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
     
 
 ##################### O06 #####################
-def getFromListByKeyIs(list:list, key:str, value:any) -> list:
+def getFromListByKeyIs(list:list, key:str, value:any, op:operator = operator.eq) -> list:
     nieuw_list = []
     for item in  list:
-        if key in item and item[key] == value:
+        if key in item and op(item[key],value):
             nieuw_list.append(item)
     return nieuw_list
+
+def getNonAdventuringPeople(people:list):
+    return getFromListByKeyIs(people, 'adventuring', False)
+
+def getNonAdventNonIntersting(investors:list):
+    return getFromListByKeyIs(getNonAdventuringPeople(investors), 'profitReturn', 10, operator.gt)
+
 
 def getAdventuringPeople(people:list) -> list:
     return getFromListByKeyIs(people, 'adventuring', True)
@@ -59,8 +67,8 @@ def getShareWithFriends(friends:list) -> list:
     
 
 def getAdventuringFriends(friends:list) -> list:
-    return getFromListByKeyIs(friends, 'adventuring', True) and getFromListByKeyIs(friends,'shareWith', True)
-    
+    return getAdventuringPeople((getShareWithFriends(friends)))
+     
 
 ##################### O07 #####################
 
@@ -149,18 +157,10 @@ def getCashInGoldFromPeople(people:list) -> float:
 ##################### O10 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-    list = []
-    for investor in investors:
-        if investor['profitReturn'] <= 10:
-            list.append(investor)
-    return list
+    return getFromListByKeyIs(investors, 'profitReturn', 10 , operator.le)
 
-def getAdventuringInvestors(investors:list) -> list:
-    list = []
-    for investor in getInterestingInvestors(investors):
-        if investor['adventuring'] == True:
-            list.append(investor)
-    return list
+def getAdventuringInvestors(investors:list) -> list:    
+    return getFromListByKeyIs(getInterestingInvestors(investors), 'adventuring' , True)
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
     adventuring_investors = getAdventuringInvestors(investors)
