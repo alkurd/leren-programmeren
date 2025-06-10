@@ -162,6 +162,9 @@ def getInterestingInvestors(investors:list) -> list:
 def getAdventuringInvestors(investors:list) -> list:    
     return getFromListByKeyIs(getInterestingInvestors(investors), 'adventuring' , True)
 
+def getNonAdventuringInvestors(investors:list) -> list:    
+    return getFromListByKeyIs(getInterestingInvestors(investors), 'adventuring' , False)
+
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
     adventuring_investors = getAdventuringInvestors(investors)
     num_investors = len(adventuring_investors)
@@ -192,7 +195,7 @@ def getInvestorsCuts(profitGold:float, investors:list) -> list:
     investors_cuts = []
     for investor in getInterestingInvestors(investors):
         profit_return = profitGold / 100
-        cut = (investor['profitReturn']) * profit_return
+        cut = investor['profitReturn'] * profit_return
         investors_cuts.append(round(cut, 2))
     return investors_cuts
 
@@ -207,8 +210,54 @@ def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:int) -> fl
 
 ##################### O14 #####################
 
-def getEarnigs(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
-    pass
+def getEarnings(profitGold: float, mainCharacter: dict, friends: list, investors: list) -> list:
+    earnings = []
+    # Verkrijg de avontuurlijke vrienden en investeerders
+    adventuringFriends = getAdventuringFriends(friends)
+    adventuringInvestors = getAdventuringInvestors(investors)
+    allInvestors = getInterestingInvestors(investors)
+    
+    # Bereken de winst voor elke investeerder
+    totalInvestorsProfit = 0
+    for investor in allInvestors:
+        profit_share = profitGold * (investor.get('profitreturn', 0) / 100)
+        totalInvestorsProfit += profit_share
+        earnings.append({
+            'name': investor.get('name'),
+            'start': getCashInGoldFromPeople([investor]),
+            'end': getCashInGoldFromPeople([investor]) + profit_share
+        })
+
+    # Resterende winst na betaling aan investeerders
+    remainingProfit = profitGold - totalInvestorsProfit
+    
+    # Alle avontuurlijke personen (mainCharacter, vrienden en investeerders)
+    adventuringPeople = [mainCharacter] + adventuringFriends + adventuringInvestors
+    totalAdventuringCount = len(adventuringPeople)
+    
+    # Bereken het deel van de winst voor avonturiers
+    adventurerCut = remainingProfit / totalAdventuringCount
+
+    # Voeg de winst van de mainCharacter toe
+    main_start = getCashInGoldFromPeople([mainCharacter])
+    main_end = main_start + adventurerCut
+    earnings.append({'name': mainCharacter['name'], 'start': main_start, 'end': main_end})
+
+    # Voeg de winst van andere avontuurlijke personen toe
+    for person in adventuringFriends:
+        person_start = getCashInGoldFromPeople([person])
+        person_end = person_start + adventurerCut
+        earnings.append({'name': person['name'], 'start': person_start, 'end': person_end})  
+
+    for person in allInvestors:
+        person_start = getCashInGoldFromPeople([person])
+        person_end = person_start + adventurerCut
+        earnings.append({'name': person['name'], 'start': person_start, 'end': person_end})   
+
+    return earnings
+
+
+
 
 ##################### view functions #####################
 
